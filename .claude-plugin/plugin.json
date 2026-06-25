@@ -1,0 +1,13 @@
+{
+  "name": "spider",
+  "description": "Crawl, scrape, search the web, and automate browsers at scale via the hosted Spider Cloud MCP server, with anti-bot bypass and AI-driven extraction.",
+  "version": "1.0.0",
+  "author": {
+    "name": "Spider",
+    "email": "support@spider.cloud"
+  },
+  "homepage": "https://spider.cloud/mcp",
+  "repository": "https://github.com/spider-rs/spider-claude-plugin",
+  "license": "MIT",
+  "keywords": ["spider", "spider cloud", "web scraping", "web crawling", "browser automation", "mcp"]
+}

@@ -1,0 +1,9 @@
+{
+  "mcpServers": {
+    "spider": {
+      "type": "http",
+      "url": "https://mcp.spider.cloud/mcp",
+      "note": "Official Spider Cloud hosted MCP server. Uses OAuth — on first connection the agent is prompted to authorize via browser; no API key to paste. Tools: crawl, scrape, search, links, screenshot, unblocker, transform, credits, AI extraction, and remote browser automation."
+    }
+  }
+}

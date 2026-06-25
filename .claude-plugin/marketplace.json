@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "spider-tools",
+  "description": "Spider Cloud plugins for Claude Code — web crawling, scraping, search, and browser automation.",
+  "owner": {
+    "name": "Spider",
+    "email": "support@spider.cloud"
+  },
+  "plugins": [
+    {
+      "name": "spider",
+      "source": "./",
+      "description": "Spider Cloud web data integration (MCP server + skills). Crawl sites, scrape pages, search the web, extract structured data with AI, and drive remote browsers — via the hosted Spider MCP server with anti-bot bypass, proxy rotation, and stealth escalation. OAuth sign-in on first use (no API key to paste).",
+      "category": "web",
+      "keywords": ["spider", "spider cloud", "web scraping", "web crawling", "browser automation"],
+      "homepage": "https://spider.cloud/mcp",
+      "license": "MIT"
+    }
+  ]
+}
