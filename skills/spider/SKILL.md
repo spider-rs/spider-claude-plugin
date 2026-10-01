@@ -34,7 +34,7 @@ an alternative). Core tools run on pay-per-use credits; the AI tools require an
 **Need web content?**
 - One page → `spider_scrape`
 - Multiple pages / follow links → `spider_crawl`
-- Behind bot protection → `spider_unblocker`
+- Behind bot protection → `spider_scrape` with `stealth: true`
 - Already have HTML locally → `spider_transform`
 
 **Need to find something?**
@@ -57,5 +57,5 @@ an alternative). Core tools run on pay-per-use credits; the AI tools require an
 
 - **Search then scrape** — `spider_search` to find URLs, then `spider_scrape` each, or set `fetch_page_content: true` to do it in one call.
 - **Scrape then transform** — `spider_scrape` with `return_format: "raw"` for HTML, then `spider_transform` to reformat without extra requests.
-- **Bypass bot protection** — try `spider_scrape` first; if blocked, escalate to `spider_unblocker`; for interactive sites use the browser tools with higher `stealth`.
+- **Bypass bot protection** — try `spider_scrape` first; if blocked, retry it with `stealth: true` and `proxy_enabled: true`; for interactive sites use the browser tools with higher `stealth`.
 - **Budget guard** — `spider_get_credits` before a large crawl.

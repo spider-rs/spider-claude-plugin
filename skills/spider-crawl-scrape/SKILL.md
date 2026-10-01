@@ -43,10 +43,9 @@ Search the web, optionally fetching full page content.
 Extract links from a page without fetching their content. Use to decide what to
 crawl next.
 
-## spider_unblocker — bot-protected sites
-Access content behind anti-bot protection using fingerprinting and proxy
-rotation. Costs extra credits on top of a base scrape — try `spider_scrape`
-first, escalate only when blocked.
+## Bot-protected sites
+Try `spider_scrape` first. If the page is blocked, retry it with
+`stealth: true` and `proxy_enabled: true`.
 
 ## spider_transform — HTML → markdown/text
 Convert HTML you already have to markdown or text without making a web request.
