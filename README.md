@@ -22,7 +22,7 @@ Then run `/reload-plugins` to activate it.
 
 ## What this plugin ships
 
-- **1 MCP server** — the hosted Spider endpoint at `https://mcp.spider.cloud/mcp`, exposing crawl, scrape, search, links, screenshot, unblocker, transform, credits, AI extraction, and remote browser-automation tools.
+- **1 MCP server** — the hosted Spider endpoint at `https://mcp.spider.cloud/mcp`, exposing crawl, scrape, search, links, screenshot, transform, credits, AI extraction, and remote browser-automation tools.
 - **3 skills** — `spider` (overview + tool-selection guide), `spider-crawl-scrape` (crawling, scraping, search, bot bypass), and `spider-browser` (interactive browser sessions). Namespaced as `/spider:spider-crawl-scrape`, etc.
 
 ## Authentication
