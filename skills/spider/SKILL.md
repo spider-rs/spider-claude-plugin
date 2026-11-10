@@ -1,61 +1,59 @@
 ---
 name: spider
 description: >-
-  Overview and tool-selection guide for Spider Cloud — crawl, scrape, search the
-  web, extract structured data with AI, and drive remote browsers with anti-bot
-  bypass. Use whenever "Spider" or "Spider Cloud" is mentioned, or when the task
-  is to get web content (scrape a page, crawl a site), search the web, extract
-  structured data from pages, or automate a real browser, and you want to pick
-  the right Spider tool for the job.
+  Pick the right Spider tool for a web task. Use when the user mentions Spider,
+  or asks to read a web page, pull content from a whole site, search the web,
+  list the links on a page, take a screenshot, turn HTML into markdown, or
+  click and type on a live page. Covers when to use spider_scrape,
+  spider_crawl, spider_search, spider_links and the browser tools.
 ---
 
-# Spider Cloud
+# Spider: pick the tool
 
-Spider is a high-throughput web data platform for AI agents: crawl sites, scrape
-pages, search the web, extract structured data with AI, and control remote
-browsers — all through the hosted Spider MCP server with built-in anti-bot
-bypass, proxy rotation, and stealth escalation.
+Spider's tools come from the hosted MCP server at `https://mcp.spider.cloud/mcp`.
+The first call asks the user to sign in to Spider in the browser (OAuth).
+Core tools spend credits from the user's Spider account. The `spider_ai_*`
+tools need an AI subscription (https://spider.cloud/ai/pricing).
 
-Use this skill as the starting point for any Spider task: it maps the request to
-the right tool. The individual capabilities each have a deeper skill —
-`spider-crawl-scrape` for fetching/searching content and `spider-browser` for
-interactive browser sessions.
+## Decide in this order
 
-## Setup
+1. **You have a URL and need that one page.** Use `spider_scrape`. It does not
+   follow links, so it is the cheapest and fastest call.
+2. **You need many pages from one site**, such as a docs section, a blog
+   archive or every product page. Use `spider_crawl` with a `limit`. Never
+   leave `limit` unset on an unknown site: the default is `0`, which means no
+   page cap.
+3. **You have no URL yet, only a question or topic.** Use `spider_search`.
+   Read the result URLs, then scrape the ones you need. To get page content
+   in the same call, set `fetch_page_content: true` and `limit: 1`, or each
+   result is crawled as a whole site.
+4. **You need to know what is on a site before choosing pages.** Use
+   `spider_links` on the start page, then scrape or crawl the URLs you pick.
+5. **The page needs clicks, typing, a login or several steps.** Use the
+   `spider_browser_*` tools. The `spider-browser` skill has the session rules.
+6. **You already have the HTML.** Use `spider_transform`. It makes no web
+   request.
+7. **You need an image of the page.** Use `spider_screenshot`.
 
-The Spider MCP server is hosted at `https://mcp.spider.cloud/mcp` and uses OAuth:
-on first connection the client prompts for browser authorization — no API key to
-paste (a `SPIDER_API_KEY` Bearer token from https://spider.cloud/api-keys works as
-an alternative). Core tools run on pay-per-use credits; the AI tools require an
-[AI subscription](https://spider.cloud/ai/pricing).
+Scrape versus crawl is the common mistake. If the user names one URL and asks
+about that page, scrape it. If they say "the docs", "the whole site", "all the
+pages under /blog", crawl it with a limit that matches the ask.
 
-## Picking the right tool
+Search versus scrape is the other one. If the user gives a URL, do not search
+for it. If they give a topic, search first.
 
-**Need web content?**
-- One page → `spider_scrape`
-- Multiple pages / follow links → `spider_crawl`
-- Behind bot protection → `spider_scrape` with `stealth: true`
-- Already have HTML locally → `spider_transform`
+## Defaults that save tokens
 
-**Need to find something?**
-- Web search → `spider_search` (set `fetch_page_content: true` to get full content)
-- Links on a known page → `spider_links`
+- Ask for `return_format: "markdown"`. The default is raw HTML.
+- Set `filter_output_main_only: true` to drop nav, aside and footer.
+- Use `readability: true` for articles.
+- Use `root_selector` when you know the part of the page you need.
+- Call `spider_get_credits` before a crawl of more than a few hundred pages.
 
-**Need AI-driven extraction?** (requires AI subscription, each takes a plain-English `prompt`)
-- Structured data from a page → `spider_ai_scrape`
-- Crawl guided by intent → `spider_ai_crawl`
-- Search with ranking/filtering → `spider_ai_search`
-- Link discovery by description → `spider_ai_links`
-- Multi-step browser task in English → `spider_ai_browser`
+## Structured data
 
-**Need interactive browser control?** → the `spider_browser_*` tools (see the `spider-browser` skill)
+For JSON fields from a page, prefer `spider_ai_scrape` with a plain English
+`prompt`, if the user has an AI subscription. Without one, scrape as markdown
+and extract the fields yourself, or pass `css_extraction_map`.
 
-**Need account info?**
-- Credit balance → `spider_get_credits` (check before large operations)
-
-## Common patterns
-
-- **Search then scrape** — `spider_search` to find URLs, then `spider_scrape` each, or set `fetch_page_content: true` to do it in one call.
-- **Scrape then transform** — `spider_scrape` with `return_format: "raw"` for HTML, then `spider_transform` to reformat without extra requests.
-- **Bypass bot protection** — try `spider_scrape` first; if blocked, retry it with `stealth: true` and `proxy_enabled: true`; for interactive sites use the browser tools with higher `stealth`.
-- **Budget guard** — `spider_get_credits` before a large crawl.
+The `spider-crawl-scrape` skill lists the parameters for each fetch tool.

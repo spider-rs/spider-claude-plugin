@@ -1,13 +1,20 @@
 {
   "name": "spider",
-  "description": "Crawl, scrape, search the web, and automate browsers at scale via the hosted Spider Cloud MCP server, with anti-bot bypass and AI-driven extraction.",
-  "version": "2.0.0",
+  "displayName": "Spider",
+  "description": "Scrape pages, crawl sites, search the web and drive a cloud browser through the hosted Spider MCP server. Skills tell the agent when to scrape, crawl, search or open a browser session.",
+  "version": "2.1.0",
   "author": {
     "name": "Spider",
-    "email": "support@spider.cloud"
+    "email": "support@spider.cloud",
+    "url": "https://spider.cloud/?utm_source=claude-code-plugin&utm_medium=directory&utm_campaign=claude-code-plugin-listing"
   },
-  "homepage": "https://spider.cloud/mcp",
+  "homepage": "https://spider.cloud/mcp/?utm_source=claude-code-plugin&utm_medium=directory&utm_campaign=claude-code-plugin-listing",
   "repository": "https://github.com/spider-rs/spider-claude-plugin",
   "license": "MIT",
-  "keywords": ["spider", "spider cloud", "web scraping", "web crawling", "browser automation", "mcp"]
+  "keywords": ["spider", "web scraping", "web crawling", "web search", "browser automation", "markdown", "mcp"],
+  "icon": "./assets/logo.svg",
+  "documentationUrl": "https://spider.cloud/mcp/connect/?utm_source=claude-code-plugin&utm_medium=directory&utm_campaign=claude-code-plugin-listing",
+  "supportUrl": "https://spider.cloud/support/?utm_source=claude-code-plugin&utm_medium=directory&utm_campaign=claude-code-plugin-listing",
+  "privacyPolicyUrl": "https://spider.cloud/privacy/?utm_source=claude-code-plugin&utm_medium=directory&utm_campaign=claude-code-plugin-listing",
+  "termsOfServiceUrl": "https://spider.cloud/eula/?utm_source=claude-code-plugin&utm_medium=directory&utm_campaign=claude-code-plugin-listing"
 }

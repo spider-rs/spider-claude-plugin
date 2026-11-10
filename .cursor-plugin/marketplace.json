@@ -1,0 +1,17 @@
+{
+  "name": "spider",
+  "owner": {
+    "name": "Spider",
+    "email": "support@spider.cloud"
+  },
+  "metadata": {
+    "description": "Spider plugin for Cursor: scrape, crawl, search and browser automation through the hosted Spider MCP server."
+  },
+  "plugins": [
+    {
+      "name": "spider",
+      "source": "./",
+      "description": "Scrape pages, crawl sites, search the web and drive a cloud browser through the hosted Spider MCP server."
+    }
+  ]
+}
