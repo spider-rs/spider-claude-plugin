@@ -1,0 +1,20 @@
+{
+  "name": "spider",
+  "displayName": "Spider",
+  "description": "Scrape pages, crawl sites, search the web and drive a cloud browser through the hosted Spider MCP server. Skills tell the agent when to scrape, crawl, search or open a browser session.",
+  "version": "2.1.0",
+  "author": {
+    "name": "Spider",
+    "email": "support@spider.cloud"
+  },
+  "publisher": "Spider",
+  "homepage": "https://spider.cloud/mcp/?utm_source=cursor-marketplace&utm_medium=directory&utm_campaign=cursor-marketplace-listing",
+  "repository": "https://github.com/spider-rs/spider-claude-plugin",
+  "license": "MIT",
+  "logo": "assets/logo.svg",
+  "category": "developer-tools",
+  "keywords": ["spider", "web scraping", "web crawling", "web search", "browser automation", "markdown", "mcp"],
+  "tags": ["scraping", "crawling", "search", "browser", "mcp"],
+  "skills": "./skills/",
+  "mcpServers": "./mcp.json"
+}
